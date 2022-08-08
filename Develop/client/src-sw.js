@@ -27,7 +27,7 @@ warmStrategyCache({
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
 // TODO: Implement asset caching
-registerRoute(({ request }) => ['style', 'script', 'worker'].includes(repeat.destination),
+registerRoute(({ request }) => ['style', 'script', 'worker'].includes(request.destination),
 new StalewhileRevalidate({
   cacheName: "asset-cache",
   plugins: [
