@@ -20,7 +20,7 @@ export const putDb = async (content) => {
 
   const store = tx.objectStore("jate");
 
-  const request = store.put({ jate: content });
+  const request = store.put({ value: content });
 
   const result = await request;
   console.log("data saved to the DB", result);
@@ -36,7 +36,8 @@ export const getDb = async () => {
   const request = store.getAll();
 
   const result = await request;
-  console.log(result);
+  console.log('result.value', result);
+  return result.value;
 };
 
 initdb();
